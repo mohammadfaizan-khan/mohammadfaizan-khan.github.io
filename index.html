@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table Tennis Sports Academy</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file -->
+    <style>
+        .main-content {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color:blue;
+            /* Replace with your image URL */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 102%;
+            /* Set the body height to 100% */
+        }
+        /* Styling for the home page */
+#home {
+    height: 100vh; /* Set the section height to the full viewport height */
+    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8__lPVtrg96ATYajTy7W93Llr_P5wvD_Vfg&usqp=CAU'); /* Replace with your image URL */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #040404;
+    opacity:0.95;
+}
+
+/* Styling for the text in the home page */
+#home .section-heading {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+#home .section-content {
+    font-size: 18px;
+    line-height: 1.6;
+}
+/* Styling for the About Us section */
+#about {
+    background-color: #434185; /* Replace with your desired background color */
+    padding: 40px;
+    margin: 20px;
+    position: relative;
+    z-index: 1;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#about .section-heading {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+#about .section-content {
+    line-height: 1.6;
+}
+
+
+        /* Styling for the header with background image */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            color: white;
+            background-color: rgba(14, 13, 13, 0.966);
+            border-radius: 20px;
+            /* Semi-transparent black overlay */
+        }
+
+        .logo {
+            font-size: 24px;
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            width: 40px;
+            /* Set the desired width for your logo */
+            height: auto;
+            margin-right: 10px;
+            /* Add space between the logo and text */
+        }
+
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav ul li a:hover {
+            background-color: white;
+            color: rgb(39, 24, 126);
+            padding: 5px 5px;
+            border-radius: 10px;
+        }
+
+        /* Styling for the main content section */
+        .main-content {
+            padding: 40px;
+            background-color: #f9f9f9;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .program-content {
+            height:100vh;
+            padding: 40px;
+            background-color: #f9f9f9;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .contact-content {
+            padding: 40px;
+            background-color: #f9f9f9;
+            color:#2D2D2D;
+            font-size: 1.5rem;
+            margin:20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .events-content {
+            padding: 40px;
+            background-color: #f9f9f9;
+            color: rgb(202, 195, 195);
+            font-size: 1.5rem;
+            background-color: #434185;
+            margin:20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .facility-content {
+            padding: 40px;
+            background-color: #cc5e76;
+            margin:20px;
+            color: rgb(253, 247, 247);
+            font-size: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .section-heading {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .section-content {
+            line-height: 1.6;
+        }
+
+        .main-content.contact {
+            background-color: #fff;
+        }
+
+        .program-content {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-image: url('data:image/jpeg;base64,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');
+            /* Replace with your image URL */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 157%;
+            width: auto;
+        }
+
+        .contact-content {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-image: url('data:image/jpeg;base64,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');
+            /* Replace with your image URL */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 118%;
+        }
+
+        /* Styling for the "Events" section */
+        .main-content.events {
+            background-color: #340438;
+        }
+
+        .event-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .event-list li {
+            padding: 20px;
+            margin-bottom: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            color:rgb(76, 80, 80);
+        }
+
+        .event-list h3 {
+            font-size: 18px;
+        }
+
+        .facility-content.facilities {
+            background-color: #fff;
+        }
+
+        .facility-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .facility-list li {
+            padding: 20px;
+            margin-bottom: 20px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: block;
+            opacity: 0.5;
+            position: relative;
+            color:rgb(59, 55, 55);
+        }
+
+        .facility-list h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .facility-list p {
+            margin-bottom: 0;
+        }
+
+        /* Styling for the contact form */
+        form {
+            max-width: 400px;
+            margin-top: 20px;
+        }
+
+        form label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        form input,
+        form textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        form button {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        form button:hover {
+            background-color: #555;
+        }
+
+        /* Styling for the "Programs" section */
+        .main-content.programs {
+            background-color: #fff;
+        }
+
+        /* Styling for program details */
+        h3 {
+            font-size: 20px;
+            margin-top: 15px;
+        }
+
+        ul {
+            list-style: disc;
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+
+        /* Styling for the footer */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        .event-heading{
+            color:wheat;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .logo {
+                margin-bottom: 10px;
+            }
+
+            nav {
+                margin-top: 20px;
+                text-align: center;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav ul li {
+                margin: 0;
+                margin-bottom: 10px;
+            }
+
+            .main-content {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <a href="#" class="logo"><img
+                src="data:image/jpeg;base64,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"
+                alt="Table Tennis Sports Academy Logo">Table Tennis Sports Academy</a>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#programs">Programs</a></li>
+                <li><a href="#events">Events</a></li>
+                <li><a href="#facility">Facilities</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <div class="home-content" id="home">
+        <div class="section-heading">Welcome to Table Tennis Sports Academy</div>
+        <div class="section-content">
+            <p>We are dedicated to providing top-quality table tennis training and coaching to players of all levels.
+            </p>
+            <p>Join us to improve your skills, enhance your performance, and become a true table tennis champion.</p>
+        </div>
+    </div>
+    <div class="main-content" id="about">
+        <div class="section-heading">About Us</div>
+        <div class="section-content">
+            <p>Welcome to the Table Tennis Sports Academy, where champions are born and skills are honed. Our academy is
+                dedicated to providing top-notch training and coaching for table tennis enthusiasts of all levels.</p>
+            <p>Our experienced coaching team is committed to helping you improve your skills, develop a strong
+                technique, and reach your full potential as a table tennis player. Whether you're a beginner or an
+                advanced player, we have programs tailored to your needs.</p>
+            <p>Join us today and embark on a journey to master the art of table tennis!</p>
+        </div>
+    </div>
+
+    <div class="program-content" id="programs">
+        <div class="section-heading">Programs</div>
+        <div class="section-content">
+            <h2>Our Training Programs</h2>
+            <p>We offer a variety of training programs to cater to different skill levels and goals:</p>
+
+            <h3>Beginner's Course</h3>
+            <p>Perfect for those new to table tennis. Learn the fundamentals of the game and basic techniques.</p>
+
+            <h3>Intermediate Training</h3>
+            <p>Build upon your foundational skills and improve your game strategy with more advanced techniques.</p>
+
+            <h3>Advanced Coaching</h3>
+            <p>For experienced players looking to elevate their performance to the next level. Receive personalized
+                coaching and targeted skill enhancement.</p>
+
+            <h3>Intensive Skill Workshops</h3>
+            <p>Join our workshops to focus on specific aspects of your game, such as serving, footwork, and tactics.</p>
+
+            <h3>One-on-One Coaching</h3>
+            <p>Receive individualized attention and training from our expert coaches to address your unique needs and
+                goals.</p>
+
+            <p>Whether you're a casual player or aspiring to be a professional, we have a program tailored for you. Join
+                us and take your table tennis skills to new heights!</p>
+        </div>
+    </div>
+
+    <div class="events-content" id="events">
+        <div class="event-heading">Events</div>
+        <div class="section-content">
+            <h2 class="event-heading">Upcoming Events</h2>
+            <ul class="event-list">
+                <li>
+                    <h3>Tournament Championship</h3>
+                    <p>Date: August 20, 2023</p>
+                    <p>Join us for an exciting table tennis tournament where players from all skill levels compete for
+                        the championship title.</p>
+                </li>
+                <li>
+                    <h3>Coaching Workshop</h3>
+                    <p>Date: September 5, 2023</p>
+                    <p>Attend our coaching workshop to learn advanced techniques and strategies from our expert coaches.
+                    </p>
+                </li>
+                <!-- Add more events as needed -->
+            </ul>
+        </div>
+    </div>
+
+    <div class="facility-content" id="facility">
+        <div class="section-heading">Facilities</div>
+        <div class="section-content">
+            <h2>Our Facilities</h2>
+            <p>We take pride in providing state-of-the-art facilities for our players:</p>
+
+            <ul class="facility-list">
+                <li>
+                    <h3>Training Courts</h3>
+                    <p>We have multiple training courts equipped with high-quality tables and equipment.</p>
+                </li>
+                <li>
+                    <h3>Coaching Center</h3>
+                    <p>Our coaching center features video analysis tools and personalized coaching sessions.</p>
+                </li>
+                <li>
+                    <h3>Fitness Area</h3>
+                    <p>Stay fit and enhance your performance in our dedicated fitness area.</p>
+                </li>
+                <!-- Add more facilities as needed -->
+            </ul>
+        </div>
+    </div>
+
+    <div class="contact-content" id="contact">
+        <div class="section-heading">Contact Us</div>
+        <div class="section-content">
+            <h2>Get in Touch</h2>
+            <p>If you have any questions, inquiries, or would like to enroll in our programs, feel free to contact us:
+            </p>
+
+            <h3>Contact Information</h3>
+            <ul>
+                <li>Email: info@tabletennissportsacademy.com</li>
+                <li>Phone: +1 (123) 456-7890</li>
+                <li>Address: 123 Main Street, City, Country</li>
+            </ul>
+
+            <h3>Send Us a Message</h3>
+            <form action="#" method="post">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="4" placeholder="Enter message" required></textarea>
+
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </div>
+
+
+    <footer>
+        <p>&copy; 2023 Table Tennis Sports Academy. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>
